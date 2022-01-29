@@ -56,11 +56,14 @@ class Person:
     def reduce_mp(self, cost):
         self.mp -= cost
 
+    def get_spell_mp_cost(self,i):
+        return int(self.magic[i]["cost"])
+
     def get_spell_name(self, i ):
         return self.magic[i]["name"]
 
     def get_spell_name(self, i ):
-        return self.magic[i]["cost"]
+        return self.magic[i]["name"]
 
     def get_action(self,i):
         return self.action[i]
@@ -72,8 +75,9 @@ class Person:
             i+=1
     def choose_magic(self):
         i = 1
+        print(bcolors.BLUE + bcolors.BOLD + "Spells:" + bcolors.END)
         for spell in self.magic:
-            print(str(i) + ":" + spell["name"] + "(cost: " + str(spell["cost"])+ ").")
+            print(str(i) + ":" + spell.name + " - (cost: " + str(spell.cost)+ ", type: " + spell.type +" magic).")
             i += 1
 
 
