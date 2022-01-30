@@ -2,7 +2,7 @@
 
 This is project number 2 on [The Complete Python 3 Course: Beginner to Advanced!](https://www.udemy.com/course/python-complete/) course in [Udemy](https://www.udemy.com/).<br/>
 <br/>
-It's a simple RPG Battle game  I made in Python to practice Object Oriented Programin in Python. <br/>
+It's a simple [RPG Battle game](https://en.wikipedia.org/wiki/Role-playing_game)  I made in Python to practice Object Oriented Programin in Python. <br/>
 You have 3 players and 3 enemys, the goal is to kill al the enemys and not get killed in the process!<br/>
 Each turn you have to choose between 3 actions:
 - Attack
