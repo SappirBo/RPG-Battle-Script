@@ -20,7 +20,8 @@ class bcolors:
 
 
 class Person:
-    def __init__(self,hp,mp,atk,df,magic,item):
+    def __init__(self,name,hp,mp,atk,df,magic,item):
+        self.name = name
         self.maxhp = hp
         self.hp = hp
         self.maxmp = mp
@@ -74,32 +75,63 @@ class Person:
 
     def get_action(self,i):
         return self.action[i]
+    def choose_enemy(self,enemys):
+        i=1
+        print(bcolors.BLUE +bcolors.BOLD + "Choose Your Enemy:" + bcolors.END)
+        for enemy in enemys:
+            print("    "+str(i)+" -> "+ enemy.name)
+            i+=1
+        select = int(input())-1
+        return select
     def choose_action(self):
         i=1
         print(bcolors.BLUE +bcolors.BOLD + "Actions:" + bcolors.END)
         for item in self.action:
-            print(str(i)+" -> "+item)
+            print("    "+str(i)+" -> "+item)
             i+=1
     def choose_magic(self):
         i = 1
         print(bcolors.BLUE + bcolors.BOLD + "Spells:" + bcolors.END)
         for spell in self.magic:
-            print(str(i) + ":" + spell.name + " - (cost: " + str(spell.cost)+ ", type: " + spell.type +" magic)")
+            print("    "+str(i) + ":" + spell.name + " - (cost: " + str(spell.cost)+ ", type: " + spell.type +" magic)")
             i += 1
-
     def choose_items(self):
         i = 1
         print(bcolors.BLUE + bcolors.BOLD + "Items:" + bcolors.END)
         for item in self.item:
-            print(str(i) + ":" + item.name + " x"+str(item.amount)+" (Type: " + item.type + ", Description: "+ item.description +")")
+            print("    "+str(i) + ":" + item.name + " x"+str(item.amount)+" (Type: " + item.type + ", Description: "+ item.description +")")
             i += 1
 
+    def get_stats(self):
+        print("                ____________________         ____________________       ")
+        print(bcolors.BOLD + self.name + ": " + str(self.hp) + "/" + str(
+            self.maxhp) + "|" + bcolors.GREEN + self.hp_bar() + bcolors.ENDC
+              + bcolors.BOLD + "| " + str(self.get_mp()) + "/" + str(
+            self.maxmp) + " |" + bcolors.BLUE + self.mp_bar() + bcolors.ENDC + bcolors.BOLD + "|" + bcolors.ENDC)
 
+    def get_enemy_stats(self):
+        print("________________________________________")
+        print(bcolors.BOLD + self.name + ": " + str(self.hp) + "/" + str(
+            self.maxhp) + "|" + bcolors.FAIL + self.hp_bar() + bcolors.ENDC)
+        print("________________________________________")
 
+    def hp_bar(self):
+        a = int((self.hp/self.maxhp * 100) / 5)
+        bar = ""
+        for i in range(1,a):
+            bar += "█"
+        for i in range(a,20):
+            bar += " "
+        return bar
 
-
-
-
+    def mp_bar(self):
+        a = int((self.mp/self.maxmp * 100) / 5)
+        bar = ""
+        for i in range(a):
+            bar += "█"
+        for i in range(a, 20):
+            bar += " "
+        return bar
 
 
 
