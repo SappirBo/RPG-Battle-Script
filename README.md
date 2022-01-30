@@ -7,8 +7,9 @@ You have 3 players and 3 enemys, the goal is to kill al the enemys and not get k
 Each turn you have to choose between 3 actions:
 - Attack
 - Magic
-- Items
+- Items<br/>
+
 Each action has it's benefits. <br/>
-<br/>
-![RPGBattle](https://user-images.githubusercontent.com/92790326/151685522-28e7369e-a603-475d-afe7-4cbd3253b11f.png)
-<br/>
+
+![](https://user-images.githubusercontent.com/92790326/151685522-28e7369e-a603-475d-afe7-4cbd3253b11f.png)
+
