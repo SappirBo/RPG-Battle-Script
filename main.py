@@ -84,7 +84,7 @@ while running:
         if index == 0:
             dmg = player.generate_damage()
             enemy.take_damage(dmg)
-            print("You attacked"+ enemy.name +" for " + str(dmg) + " damage points! ")
+            print("You attacked "+ enemy.name +" for " + str(dmg) + " damage points! ")
         elif index == 1:
             player.choose_magic()
             choice = int(input("Choose your Magic!")) - 1
@@ -129,15 +129,20 @@ while running:
         print(bcolors.FAIL + "Wrong Action Key!" + bcolors.ENDC)
 
     enemy_choice = 1
-    enemy_dmg = enemy.generate_damage()
-    player.take_damage(enemy_dmg)
-    print("The Enemy attacked for " + str(enemy_dmg) + " damage points!")
+
+    for enemy in enemys:
+        enemy_dmg = enemy.generate_damage()
+        action = enemy.choose_Traget(players)
+        if action == -1:
+            enemy_dmg = enemy.generate_damage()
+            enemy.self_heal(enemy_dmg)
+            print(enemy.name + " Healed!")
+        else:
+            enemy_dmg = enemy.generate_damage()
+            players[action].take_damage(enemy_dmg)
+            print(enemy.name + " attacked " + players[action].name + "for " + str(enemy_dmg) + " damage points!")
 
     print("__________________________")
-    # print("Player HP: " + bcolors.CYAN + str(player.get_hp())+"/"+ str(player.get_MaxHp()) + bcolors.ENDC + ", MP: "
-    #                                                     + bcolors.CYAN + str(player.get_mp())+"/"+str(player.get_maxmp())+ bcolors.ENDC)
-    # print("Enemy HP: " + bcolors.FAIL + str(enemy.get_hp()) + "/" + str(enemy.get_MaxHp()) +bcolors.ENDC)
-    # print("__________________________")
 
     if enemy.get_hp() ==  0:
         print(bcolors.GREEN + enemy.name +" is down!" + bcolors.ENDC)

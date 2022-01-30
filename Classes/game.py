@@ -133,8 +133,25 @@ class Person:
             bar += " "
         return bar
 
-
-
-
+    def choose_Traget(self,Players):
+        if self.mp >=8:
+            if self.hp < 200:
+                return -1
+            else:
+                i = 0
+                p = Players[i]
+                for player in Players:
+                    if player.hp < p.hp:
+                        p = player
+                        i += 1
+                return i
+        else:
+            i=0
+            p = Players[i]
+            for player in Players:
+                if player.hp < p.hp:
+                    p = player
+                    i += 1
+            return i
 
 
