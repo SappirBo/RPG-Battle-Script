@@ -22,3 +22,4 @@ as a player you have magic power (MP) to spend on this spells:
 as a player you have some Items to use while you battle, each one in diffrent amount - so you need to think before spend one
 
 ![RPGBattle_Items](https://user-images.githubusercontent.com/92790326/151685832-dd62f46b-ba08-4975-9509-5b0c95084d64.png)
+
